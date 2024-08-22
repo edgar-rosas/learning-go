@@ -2,18 +2,37 @@ package main
 
 import "fmt"
 
-const englishHelloPrefix = "Hello, "
+const (
+	spanish            = "Spanish"
+	french             = "French"
+	german             = "German"
+	englishHelloPrefix = "Hello, "
+	spanishHelloPrefix = "Hola, "
+	frenchHelloPrefix  = "Bonjour, "
+	germanHelloPrefix  = "Hallo, "
+)
 
-func Hello(name string) string {
+func Hello(name, language string) string {
 	if name == "" {
 		name = "world"
 	}
-	return englishHelloPrefix + name + "!"
+	return GreetingPrefix(language) + name + "!"
+}
+
+func GreetingPrefix(language string) (prefix string) {
+	switch language {
+	case french:
+		prefix = frenchHelloPrefix
+	case spanish:
+		prefix = spanishHelloPrefix
+	case german:
+		prefix = germanHelloPrefix
+	default:
+		prefix = englishHelloPrefix
+	}
+	return
 }
 
 func main() {
-	fmt.Println(Hello("World"))
+	fmt.Println(Hello("World", "English"))
 }
-
-//TIP See GoLand help at <a href="https://www.jetbrains.com/help/go/">jetbrains.com/help/go/</a>.
-// Also, you can try interactive lessons for GoLand by selecting 'Help | Learn IDE Features' from the main menu.
