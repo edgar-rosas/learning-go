@@ -1,4 +1,4 @@
-package main
+package hello
 
 import "fmt"
 
@@ -12,6 +12,7 @@ const (
 	germanHelloPrefix  = "Hallo, "
 )
 
+// Hello greets according to provided name and language
 func Hello(name, language string) string {
 	if name == "" {
 		name = "world"
@@ -19,6 +20,7 @@ func Hello(name, language string) string {
 	return GreetingPrefix(language) + name + "!"
 }
 
+// GreetingPrefix returns the correct greeting depending on the language
 func GreetingPrefix(language string) (prefix string) {
 	switch language {
 	case french:
