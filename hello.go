@@ -2,12 +2,17 @@ package main
 
 import "fmt"
 
-func Hello() string {
-	return "Hello World"
+const englishHelloPrefix = "Hello, "
+
+func Hello(name string) string {
+	if name == "" {
+		name = "world"
+	}
+	return englishHelloPrefix + name + "!"
 }
 
 func main() {
-	fmt.Println(Hello())
+	fmt.Println(Hello("World"))
 }
 
 //TIP See GoLand help at <a href="https://www.jetbrains.com/help/go/">jetbrains.com/help/go/</a>.
